@@ -58,8 +58,8 @@
 ---------------------------------------------------------------------
 digraph arch{
   node [ shape = box ];
-  PF [ label = "PF仓库系统", style = "rounded,filled", color=orange ];
-  CSS [ label = "CSS无线扫描系统", style = "rounded,filled", color=cyan3 ];
+  PF   [ label = "PF仓库系统", style = "rounded,filled", color=orange ];
+  CSS  [ label = "CSS无线扫描系统", style = "rounded,filled", color=cyan3 ];
 
   subgraph cluster0 {
     label = "佳能系统"; style = dashed;
@@ -68,7 +68,7 @@ digraph arch{
 
   subgraph cluster1 {
     style = invis;
-    eLogistics -> PF [ label = "出库清单" ];
+    eLogistics -> PF  [ label = "出库清单" ];
     eLogistics -> CSS [ label = "出库清单" ];
     CSS -> eLogistics [ label = "机身条码" ];
   }
@@ -76,16 +76,16 @@ digraph arch{
 }
 ---------------------------------------------------------------------
 
--------
-* 系统之间是通过导出、导入excel文件，进行数据交换
-* 入库时，PF系统没有电子数据交换，手工录入数据
-* 入库时，不使用CSS系统
--------
+[NOTE]
+=================================
+. 系统之间是通过导出、导入excel文件，进行数据交换
+. 入库时，PF系统没有电子数据交换，手工录入数据
+. 入库时，不使用CSS系统
+=================================
 
 == 祥龙统一系统推动的考虑因素
 - 系统需要得到佳能的认同
 - 环节与上海、广州的公司有合作伙伴关系，系统能够推广最好
 - 日企有较强的排外文化
 - 系统推动的阻力以非技术层面为主
-
 
