@@ -29,9 +29,9 @@ digraph arch{
   2    [ label = "调度：分拣DO单" ];
   3    [ label = "调度：安排车辆" ];
   4    [ label = "<等待库管完成备货；等待车辆到达>" ];
-  5    [ label = "调度" ];
-  6    [ label = "" ];
-  7    [ label = "" ];
+  5    [ label = "调度：备货区，用DO单对照PF单查找货物，组织装车" ];
+  6    [ label = "司机：确认货物，在DO单上签字" ];
+  7    [ label = "调度：保留DO单的仓库联、运输联" ];
 
   subgraph cluster0 {
     style = invis;
