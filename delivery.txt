@@ -24,24 +24,29 @@
 ["graphviz", "dispatch.png"]
 ---------------------------------------------------------------------
 digraph dispatch {
-  label = "调度装车基本流程图"
-  node [ shape = box ];
+  compound=true;
+  label = "调度装车基本流程图";
+  node [ shape = box, style = filled, color=cyan3 ];
   1    [ label = "客服：传递DO单给调度" ];
-  2    [ label = "调度：分拣DO单" ];
   3    [ label = "调度：安排车辆" ];
-  4    [ label = "<等待库管完成备货；等待车辆到达>" ];
+  4    [ label = "<等待库管完成备货；等待车辆到达>", shape=polygon, sides=6];
   5    [ label = "调度：备货区，用DO单对照PF单查找货物，组织装车" ];
   6    [ label = "司机：确认货物，在DO单上签字" ];
   7    [ label = "调度：保留DO单的仓库联、运输联" ];
 
-  subgraph cluster0 {
-    style = invis;
-    1 -> 2;
-    2 -> 3;
-    3 -> 4;
-    4 -> 5;
-    5 -> 6;
-    6 -> 7;
+  1 -> a [lhead=cluster_pick];
+  c -> 3 [ltail=cluster_pick];
+  3 -> 4;
+  4 -> 5;
+  5 -> 6;
+  6 -> 7;
+  subgraph cluster_pick {
+    label =  "调度：分拣DO单"; style = dashed; style = filled; color=cyan3;
+    a   [ label = "分拣市内、市外", color=white ];
+    b   [ label = "分拣市外的陆运、空运", color=white ];
+    c   [ label = "分拣不同区域", color=white ];
+    a -> b [style = dashed];
+    b -> c [style = dashed];
   }
 }
 ---------------------------------------------------------------------
