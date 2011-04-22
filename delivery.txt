@@ -21,9 +21,10 @@
 
 
 == 调度装车基本流程图
-["graphviz", "delivery.png"]
+["graphviz", "dispatch.png"]
 ---------------------------------------------------------------------
-digraph delivery {
+digraph dispatch {
+  label = "调度装车基本流程图"
   node [ shape = box ];
   1    [ label = "客服：传递DO单给调度" ];
   2    [ label = "调度：分拣DO单" ];
